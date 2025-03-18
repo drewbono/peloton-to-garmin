@@ -24,6 +24,11 @@ jobs:
       image:  philosowaffle/peloton-to-garmin:console-stable
     steps:
 
+    - name: Debug Working Directory
+      run: |
+        echo "Working directory: $(pwd)"
+        ls -ld "$(pwd)"
+
     - name: Set output directory
       run: |
         echo "OUTPUT_DIR=/app/output" > ./envfile
