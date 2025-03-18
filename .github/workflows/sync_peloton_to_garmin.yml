@@ -29,6 +29,16 @@ jobs:
         echo "Working directory: $(pwd)"
         ls -ld "$(pwd)"
 
+    - name: Debug user info
+      run: |
+        id
+        whoami
+
+    - name: Adjust working directory permissions
+      run: |
+        chmod u+w .
+        ls -ld .
+        
     - name: Set output directory
       run: |
         echo "OUTPUT_DIR=/app/output" > ./envfile
