@@ -52,6 +52,12 @@ jobs:
 
     steps:
 
+      - name: Change to home directory and write env file
+        run: |
+          cd $HOME
+          echo "OUTPUT_DIR=/app/output" > envfile
+          cat envfile >> "$GITHUB_ENV"
+          
       - name: ⤵ Checkout the code
         uses: actions/checkout@v3
 
