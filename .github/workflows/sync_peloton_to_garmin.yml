@@ -24,33 +24,6 @@ jobs:
       image:  philosowaffle/peloton-to-garmin:console-stable
     steps:
 
-    - name: Change to home directory and write env file
-      run: |
-        cd $HOME
-        echo "OUTPUT_DIR=/app/output" > envfile
-        cat envfile >> "$GITHUB_ENV"
-
-
-    - name: Debug Working Directory
-      run: |
-        echo "Working directory: $(pwd)"
-        ls -ld "$(pwd)"
-
-    - name: Debug user info
-      run: |
-        id
-        whoami
-
-    - name: Adjust working directory permissions
-      run: |
-        chmod u+w .
-        ls -ld .
-        
-    - name: Set output directory
-      run: |
-        echo "OUTPUT_DIR=/app/output" > ./envfile
-        cat ./envfile  >> $GITHUB_ENV
-
     - name: ⚙ Configure output directory
       run: echo "OUTPUT_DIR=/app/output" >> $GITHUB_ENV
 
